@@ -12,6 +12,14 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 
+
+function Due() {
+  let due_date = Date.parse("7/1/2020")
+  let ttl_secs = ( due_date - Date.now())/1000
+  let ttl_days = Math.round(((ttl_secs/60)/60)/24)
+  return ttl_days
+}
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -24,6 +32,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
+   
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
@@ -35,9 +44,11 @@ const Layout = ({ children }) => {
       >
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Global Education Ministries.
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+
+          <br/>
+          Site going live in <Due/> days.   
         </footer>
       </div>
     </>
