@@ -1,6 +1,8 @@
 describe('Check content', function() {
-    it("Contains character data", function() {
-      cy.visit("http://localhost:8000")
+    it("Contains text", function() {
+      cy.visit("http://localhost:3000/")
+      cy.title().should("eq", "Two Fish")
+      
     })
   })
   
