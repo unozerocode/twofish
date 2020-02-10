@@ -5,7 +5,9 @@
   "version": "0.1.0",
   "author": "Uno Zero Code",
   "dependencies": {
+    "fs": "0.0.1-security",
     "gulp-cli": "^2.2.0",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {

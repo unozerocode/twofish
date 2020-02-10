@@ -1,12 +1,23 @@
 const http = require('http');
+fileSystem = require('fs'),
+path = require('path');
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.end(response_text);
+  var filePath = path.join(__dirname, '../public/index.html');
+  var stat = fileSystem.statSync(filePath);
+  res.writeHead(200, {
+    'Content-Type': 'text/html',
+    'Content-Length': stat.size
+  });
+  
+
+  var readStream = fileSystem.createReadStream(filePath);
+    // We replaced all the event handlers with a simple call to readStream.pipe()
+  readStream.pipe(res);
 });
 
 server.listen(port, hostname, () => {
