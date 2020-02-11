@@ -26,6 +26,6 @@ jobs:
       with:
           build: npm run build
           start: npm start
-          wait-on: http://localhost:8000
+          wait-on: http://localhost:3000
       env:
         CI: true
