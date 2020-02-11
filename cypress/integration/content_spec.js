@@ -1,6 +1,8 @@
 describe('Check content', function() {
+  
     it("Contains text", function() {
-      cy.visit("http://localhost:3000/")
+     // cy.log("Beginnig test")
+      cy.visit("/")
       cy.title().should("eq", "Two Fish")
       
     })

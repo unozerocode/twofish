@@ -1,33 +1,22 @@
 {
-  "name": "two-fish",
+  "name": "twofish",
+  "version": "0.0.0",
   "private": true,
-  "description": "Application",
-  "version": "0.1.0",
-  "author": "Uno Zero Code",
-  "dependencies": {
-    "fs": "0.0.1-security",
-    "gulp-cli": "^2.2.0",
-    "path": "^0.12.7",
-    "prop-types": "^15.7.2"
-  },
-  "devDependencies": {
-    "cypress": "^4.0.1",
-    "gulp": "^4.0.2",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1"
-  },
-  "keywords": [
-    "node"
-  ],
-  "license": "MIT",
   "scripts": {
-    "build": "gulp build",
-    "develop": "gulp build",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "node src/index.js",
-    "clean": "gulp clean",
+    "start": "node ./bin/www",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race start cy:run"
+    "test": "npm start & wait-on http://localhost:3000 & cy:run"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cypress": "^4.0.1",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11",
+    "run-p": "0.0.0",
+    "wait-on": "^4.0.0"
   }
 }
