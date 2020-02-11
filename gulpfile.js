@@ -1,7 +1,7 @@
 const { series } = require('gulp');
 const { src, dest } = require('gulp');
 const eslint = require('gulp-eslint');
-const webpack = require('webpack-stream');
+
 
 
 function lint(cb) {
@@ -26,13 +26,10 @@ function clean(cb) {
 
 // The `build` function is exported so it is public and can be run with the `gulp` command.
 // It can also be used within the `series()` composition.
-function transfer(cb) {
-    return src('src/html/index.html')
-    .pipe(webpack({
-        
-    }));
+function build(cb) {
+   cb();
 }
 
 
-exports.build = series(lint, transfer);
-exports.default = series(clean, transfer);
+exports.build = build;
+exports.default = series(clean, build);
