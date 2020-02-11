@@ -6,5 +6,10 @@ describe('Check content', function() {
       cy.title().should("eq", "Two Fish")
       
     })
+
+    it("Handles checkout", function() {
+      cy.get('#checkout-button-sku_GiXF53oqGxy9zw').click()
+      cy.contains("Pay with card")
+    })
   })
   
